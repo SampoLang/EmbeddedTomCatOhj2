@@ -1,0 +1,30 @@
+name: Deploy to heroku
+
+on:
+  push:
+    branches: [ heroku ]
+
+jobs:
+  deploy:
+    if:
+      github.repository_owner == 'ohjelmointi2'
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - name: Basic git configuration
+      run: | 
+        git config --global user.email "44917122+swd1tn002@users.noreply.github.com"
+        git config --global user.name "Github Actions"
+    - name: Add Heroku remote
+      run: git remote add heroku https://_@git.heroku.com/embedded-tomcat-template.git
+    - name: Push to Heroku
+      run: |
+        echo 'echo ${{ secrets.HEROKU_API_KEY }}' > ~/.git-askpass
+        chmod +x ~/.git-askpass
+        export GIT_ASKPASS=~/.git-askpass
+        git push heroku heroku:master --force
+        rm ~/.git-askpass
