@@ -10,8 +10,7 @@
 </head>
 
 <body>
-
-	<h1>🎉 Congratulations! 🎉</h1>
+	<h1>🎉 Congratulations! 🎉  </h1>
 
 	<p>If you are viewing this page on a browser, several technical
 		components appear to work properly:</p>
