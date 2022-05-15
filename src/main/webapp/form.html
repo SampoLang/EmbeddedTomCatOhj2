@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +10,7 @@
 <body>
     <div>
         <p>Count days between today and any other date:</p>
-        <form action="/daysUntil" method="get">
+        <form name = "dateFrom" method="get" action="daysUntil" >
             <label>Year: <input type="number" name="year"></label>
             <label>Month: <input type="number" name="month" min="1" max="12"></label>
             <label>Day: <input type="number" name="day" min="1" max="31"></label>

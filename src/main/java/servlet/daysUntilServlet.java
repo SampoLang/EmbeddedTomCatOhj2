@@ -11,10 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/daysUntil")
-public class daysUntil extends HttpServlet {
+public class daysUntilServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
 		System.out.println("PAIVALASKURI SERVLETISSÄ");
 		LocalDate today = LocalDate.now();
 		int year = Integer.parseInt(req.getParameter("year"));
@@ -34,6 +35,7 @@ public class daysUntil extends HttpServlet {
 		}
 		req.setAttribute("daysBetweenDates", daysBetweenDates);
 		req.setAttribute("futureDate", compareDate);
-		req.getRequestDispatcher("/WEB-INF/ShowDaysBetween.jsp").forward(req, resp);
+
+		req.getRequestDispatcher("/WEB-INF/DaysUntil.jsp").forward(req, resp);
 	}
 }

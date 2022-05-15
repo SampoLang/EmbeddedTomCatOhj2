@@ -12,4 +12,4 @@
 <img src=${ image }>
 
 </body>
-</html>
+</html >
